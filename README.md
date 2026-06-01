@@ -23,9 +23,10 @@ It communicates internally with the other services using Kubernetes service disc
 
 ---
 
+
 ## Architecture
 
-
+```text
     User / Client
          |
     API Gateway
@@ -167,6 +168,8 @@ Internal microservices use `type: ClusterIP`. This ensures they remain private a
 the Kubernetes cluster without exposure to the public internet.
 
 ```
+
+```text
 
 ### 5. Added Environment Variables for Service Communication
 

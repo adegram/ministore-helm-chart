@@ -175,6 +175,7 @@ the Kubernetes cluster without exposure to the public internet.
 
 Instead of hardcoding endpoint URLs directly in the application code, environment variables are mapped 
 to allow dynamic routing:
+```
 
 ```yaml
 env:
@@ -184,7 +185,6 @@ env:
   value: "http://order-service:3002"
 - name: NOTIFICATION_SERVICE_URL
   value: "http://notification-service:3003"
-
 ```
 
 This enables the API Gateway to interact with backing services natively:
@@ -207,7 +207,6 @@ data:
   PRODUCT_SERVICE_URL: "http://product-service:3001"
   ORDER_SERVICE_URL: "http://order-service:3002"
   NOTIFICATION_SERVICE_URL: "http://notification-service:3003"
-
 ```
 
 The Deployment loads all values safely using `envFrom`:

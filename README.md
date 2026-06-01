@@ -25,7 +25,7 @@ It communicates internally with the other services using Kubernetes service disc
 
 ## Architecture
 
-```text
+
     User / Client
          |
     API Gateway

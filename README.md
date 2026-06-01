@@ -160,31 +160,26 @@ spec:
   - port: 3001
     targetPort: 3001
 
+```### 4. Used ClusterIP for Internal Communication
+
+Internal microservices use `type: ClusterIP`. This ensures they remain private and can only communicate inside the Kubernetes cluster without exposure to the public internet.
+
+```yaml
+type: ClusterIP
 ```
-
-### 4. Used ClusterIP for Internal Communication
-
-Internal microservices use `type: ClusterIP`. This ensures they remain private and can only communicate inside 
-the Kubernetes cluster without exposure to the public internet.
-
-```
-
-```text
 
 ### 5. Added Environment Variables for Service Communication
 
-Instead of hardcoding endpoint URLs directly in the application code, environment variables are mapped 
-to allow dynamic routing:
-```
+Instead of hardcoding endpoint URLs directly in the application code, environment variables are mapped to allow dynamic routing:
 
 ```yaml
 env:
-- name: PRODUCT_SERVICE_URL
-  value: "http://product-service:3001"
-- name: ORDER_SERVICE_URL
-  value: "http://order-service:3002"
-- name: NOTIFICATION_SERVICE_URL
-  value: "http://notification-service:3003"
+  - name: PRODUCT_SERVICE_URL
+    value: "http://product-service:3001"
+  - name: ORDER_SERVICE_URL
+    value: "http://order-service:3002"
+  - name: NOTIFICATION_SERVICE_URL
+    value: "http://notification-service:3003"
 ```
 
 This enables the API Gateway to interact with backing services natively:
